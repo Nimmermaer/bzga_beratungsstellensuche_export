@@ -1,0 +1,40 @@
+{
+  "name": "bzga/bzga-beratungsstellensuche-export",
+  "type": "typo3-cms-extension",
+  "description": "Export der Beratungsstellen",
+  "version": "1.0.0",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Sebastian Schreiber",
+      "email": "ssch@hauptweg-nebenwege.de",
+      "role": "Developer"
+    },
+    {
+      "name": "Sebastian Hebler",
+      "email": "sh@hauptweg-nebenwege.de",
+      "role": "Projectmanager"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "BZgA\\BzgaBeratungsstellensucheFamilienplanung\\": "Classes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BZgA\\BzgaBeratungsstellensucheFamilienplanung\\": "Tests"
+    }
+  },
+  "require": {
+    "typo3/cms-core": ">=6.2.10,<7.0",
+    "php": ">=5.5.9"
+  },
+  "suggest": {
+    "typo3-ter/bzga/bzga-beratungsstellensuche": "We need the core extension"
+  },
+  "replace": {
+    "bzga_beratungsstellensuche_export": "self.version",
+    "bzga/bzga-beratungsstellensuche-export": "self.version"
+  }
+}

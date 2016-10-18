@@ -1,0 +1,11 @@
+# cat=security; type=string; label=Host
+host =
+
+# cat=security; type=string; label=Usernames
+usernames =
+
+# cat=security; type=string; label=Fullpath to private key file
+path_to_private_key_file =
+
+# cat=security; type=string; label=Fullpath to public key file
+path_to_public_key_file =
