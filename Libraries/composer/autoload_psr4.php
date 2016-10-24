@@ -7,5 +7,4 @@ $baseDir = $vendorDir;
 
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'League\\Csv\\' => array($vendorDir . '/league/csv/src'),
 );

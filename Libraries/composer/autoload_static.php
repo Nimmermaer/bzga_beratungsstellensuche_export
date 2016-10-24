@@ -15,10 +15,6 @@ class ComposerStaticInit613086141d98f5bafa231aaa71ac60a9
         array (
             'phpseclib\\' => 10,
         ),
-        'L' => 
-        array (
-            'League\\Csv\\' => 11,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -26,9 +22,15 @@ class ComposerStaticInit613086141d98f5bafa231aaa71ac60a9
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
-        'League\\Csv\\' => 
+    );
+
+    public static $prefixesPsr0 = array (
+        'o' => 
         array (
-            0 => __DIR__ . '/..' . '/league/csv/src',
+            'org\\bovigo\\vfs\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
+            ),
         ),
     );
 
@@ -37,6 +39,7 @@ class ComposerStaticInit613086141d98f5bafa231aaa71ac60a9
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit613086141d98f5bafa231aaa71ac60a9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit613086141d98f5bafa231aaa71ac60a9::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit613086141d98f5bafa231aaa71ac60a9::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

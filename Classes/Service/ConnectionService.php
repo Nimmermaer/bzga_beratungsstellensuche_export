@@ -1,13 +1,30 @@
 <?php
 
-
 namespace BZgA\BzgaBeratungsstellensucheExport\Service;
+
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
 use BZgA\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * @package TYPO3
+ * @subpackage bzga_beratungsstellensuche_exporter
+ * @author Sebastian Schreiber
+ */
 class ConnectionService
 {
     /**
@@ -41,12 +58,13 @@ class ConnectionService
     }
 
     /**
-     * @param string $filename
      * @param string $data
+     * @param string $filenamePrefix
      * @param string $remoteDirectory
      */
-    public function upload($filename, $data, $remoteDirectory = 'home')
+    public function upload($data, $filenamePrefix = 'bzga_beratungsstellen_', $remoteDirectory = 'home')
     {
+        $filename = $filenamePrefix.date('Ymd', time());
         $connectionEstablished = false;
         foreach ($this->usernames as $username) {
             if (true === $this->sftp->login($username, $this->key)) {

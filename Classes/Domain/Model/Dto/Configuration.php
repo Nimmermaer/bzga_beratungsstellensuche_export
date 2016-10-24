@@ -1,10 +1,27 @@
 <?php
 
-
 namespace BZga\BzgaBeratungsstellensucheExport\Domain\Model\Dto;
+
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * @package TYPO3
+ * @subpackage bzga_beratungsstellensuche_exporter
+ * @author Sebastian Schreiber
+ */
 class Configuration
 {
 
@@ -37,7 +54,7 @@ class Configuration
         foreach ($configuration as $key => $value) {
             $propertyKey = GeneralUtility::underscoredToLowerCamelCase($key);
             if (property_exists(__CLASS__, $propertyKey)) {
-                $this->$propertyKey = $value;
+                $this->{$propertyKey} = $value;
             }
         }
     }
@@ -51,27 +68,11 @@ class Configuration
     }
 
     /**
-     * @param string $host
-     */
-    public function setHost($host)
-    {
-        $this->host = $host;
-    }
-
-    /**
      * @return array
      */
     public function getUsernames()
     {
         return $this->usernames;
-    }
-
-    /**
-     * @param array $usernames
-     */
-    public function setUsernames($usernames)
-    {
-        $this->usernames = $usernames;
     }
 
     /**
@@ -83,27 +84,11 @@ class Configuration
     }
 
     /**
-     * @param string $pathToPrivateKeyFile
-     */
-    public function setPathToPrivateKeyFile($pathToPrivateKeyFile)
-    {
-        $this->pathToPrivateKeyFile = $pathToPrivateKeyFile;
-    }
-
-    /**
      * @return string
      */
     public function getPathToPublicKeyFile()
     {
         return $this->pathToPublicKeyFile;
-    }
-
-    /**
-     * @param string $pathToPublicKeyFile
-     */
-    public function setPathToPublicKeyFile($pathToPublicKeyFile)
-    {
-        $this->pathToPublicKeyFile = $pathToPublicKeyFile;
     }
 
 

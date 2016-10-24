@@ -1,17 +1,31 @@
 <?php
 
-
 namespace BZga\BzgaBeratungsstellensucheExport\Command;
 
-use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
-use BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\Encoder\CsvEncoder;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
+use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
+use BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer;
+use BZgA\BzgaBeratungsstellensucheExport\Factories\RSAFactory;
+use BZgA\BzgaBeratungsstellensucheExport\Factories\SFTPFactory;
+use BZgA\BzgaBeratungsstellensucheExport\Service\ConnectionService;
+
+/**
+ * @package TYPO3
+ * @subpackage bzga_beratungsstellensuche_exporter
+ * @author Sebastian Schreiber
+ */
 class ExportCommandController extends CommandController
 {
 
@@ -22,29 +36,38 @@ class ExportCommandController extends CommandController
     protected $entryRepository;
 
     /**
+     * @var \BZga\BzgaBeratungsstellensucheExport\Configuration\Manager
+     * @inject
+     */
+    protected $configurationManager;
+
+    /**
      * Export entries to defined format
      *
      * @param string $type
      */
     public function exportCommand($type = 'csv')
     {
-        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
-        // @TODO: Create factory for the type
-        $nameConverter = new SorgenTelefonNameConverter();
-        $normalizer = new ObjectNormalizer($classMetadataFactory, $nameConverter);
-        $normalizer->setIgnoredAttributes();
+        $entries = $this->entryRepository->findAll();
+        if (!empty($entries)) {
+            $serializer = $this->objectManager->get(EtbSerializer::class);
 
+            $data = $serializer->serialize($entries->toArray(), $type);
 
-        $serializer = new Serializer(
-            array(
-                $normalizer,
-            ),
-            array(
-                new CsvEncoder('|'),
-            )
-        );
-        $csvString = $serializer->serialize($this->entryRepository->findAll()->toArray(), 'csv', array('groups' => array('address')));
-        \TYPO3\CMS\Core\Utility\DebugUtility::debug($csvString);
+            $configuration = $this->configurationManager->getConfiguration();
+
+            $rsa = RSAFactory::createInstance($configuration->getPathToPrivateKeyFile(),
+                $configuration->getPathToPublicKeyFile());
+
+            $sftp = SFTPFactory::createInstance($configuration->getHost());
+
+            $connectionService = $this->objectManager->get(ConnectionService::class, $rsa, $sftp,
+                $configuration->getUsernames());
+
+            /* @var $connectionService ConnectionService */
+            $connectionService->upload($data);
+
+        }
     }
 
 }
