@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Exception;
+namespace Bzga\BzgaBeratungsstellensucheExport\Exception;
 
 /**
  * This file is part of the TYPO3 CMS project.

@@ -2,7 +2,7 @@
   "name": "bzga/bzga-beratungsstellensuche-export",
   "type": "typo3-cms-extension",
   "description": "Export der Beratungsstellen",
-  "version": "1.0.0",
+  "version": "6.2.0",
   "license": "GPL-2.0+",
   "authors": [
     {
@@ -18,12 +18,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "BZgA\\BzgaBeratungsstellensucheFamilienplanung\\": "Classes"
+      "Bzga\\BzgaBeratungsstellensucheEssstoerungen\\": "Classes"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "BZgA\\BzgaBeratungsstellensucheFamilienplanung\\": "Tests"
+      "Bzga\\BzgaBeratungsstellensucheEssstoerungen\\": "Tests"
     }
   },
   "require": {
@@ -31,10 +31,15 @@
     "php": ">=5.5.9"
   },
   "suggest": {
-    "typo3-ter/bzga/bzga-beratungsstellensuche": "We need the core extension"
+    "bzga/bzga-beratungsstellensuche": "We need the core extension"
   },
   "replace": {
     "bzga_beratungsstellensuche_export": "self.version",
     "bzga/bzga-beratungsstellensuche-export": "self.version"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "6.2.x-dev"
+    }
   }
 }

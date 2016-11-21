@@ -1,15 +1,29 @@
 <?php
 
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer;
+namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
+
+
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 use Symfony\Component\Serializer\SerializerInterface;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-use BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
-use BZgA\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
 
 class EtbSerializer implements SerializerInterface
 {
@@ -58,6 +72,7 @@ class EtbSerializer implements SerializerInterface
      * @param string $type
      * @param string $format
      * @param array $context
+     * @return void
      * @throws \BadMethodCallException
      */
     public function deserialize($data, $type, $format, array $context = array())

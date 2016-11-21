@@ -1,7 +1,7 @@
 <?php
 
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Model;
+namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Model;
 
 /**
  * This file is part of the TYPO3 CMS project.

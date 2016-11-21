@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Factories;
+namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -16,7 +16,7 @@ namespace BZgA\BzgaBeratungsstellensucheExport\Factories;
  */
 
 use phpseclib\Crypt\RSA;
-use BZgA\BzgaBeratungsstellensucheExport\Exception\FileNotFoundException;
+use Bzga\BzgaBeratungsstellensucheExport\Exception\FileNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**

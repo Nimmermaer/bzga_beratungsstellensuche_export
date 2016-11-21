@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Model;
+namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Model;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -20,7 +20,7 @@ namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Model;
  * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
-class Entry extends \BZgA\BzgaBeratungsstellensuche\Domain\Model\Entry
+class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
 {
 
     /**
@@ -124,7 +124,7 @@ class Entry extends \BZgA\BzgaBeratungsstellensuche\Domain\Model\Entry
         if ($this->categories->count() > 0) {
             $categories = $this->categories->toArray();
             foreach ($categories as $category) {
-                /* @var $category \BZgA\BzgaBeratungsstellensucheExport\Domain\Model\Category */
+                /* @var $category \Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Category */
                 $categoryUids[] = $category->getEtbId();
             }
         }

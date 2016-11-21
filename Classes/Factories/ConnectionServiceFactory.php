@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Factories;
+namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -15,9 +15,9 @@ namespace BZgA\BzgaBeratungsstellensucheExport\Factories;
  * The TYPO3 project - inspiring people to share!
  */
 
-use BZgA\BzgaBeratungsstellensucheExport\Service\ConnectionService;
+use Bzga\BzgaBeratungsstellensucheExport\Service\ConnectionService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use BZga\BzgaBeratungsstellensucheExport\Configuration\Manager;
+use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 
 /**
  * @package TYPO3

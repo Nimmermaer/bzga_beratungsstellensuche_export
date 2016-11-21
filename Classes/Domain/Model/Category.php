@@ -1,10 +1,10 @@
 <?php
 
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Model;
+namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Model;
 
 
-class Category extends \BZgA\BzgaBeratungsstellensuche\Domain\Model\Category
+class Category extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Category
 {
 
     /**

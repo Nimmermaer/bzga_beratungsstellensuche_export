@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter;
+namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -62,6 +62,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     /**
      * @param string $propertyName
      * @throws \BadMethodCallException
+     * @return string
      */
     public function normalize($propertyName)
     {
@@ -75,7 +76,8 @@ class SorgenTelefonNameConverter implements NameConverterInterface
 
     /**
      * @param string $propertyName
-     * @return mixed|string
+     * @return void
+     * @throws \BadMethodCallException
      */
     public function denormalize($propertyName)
     {

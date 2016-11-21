@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Factories;
+namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
 
 /**
  * This file is part of the TYPO3 CMS project.

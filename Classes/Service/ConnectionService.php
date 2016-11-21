@@ -1,6 +1,6 @@
 <?php
 
-namespace BZgA\BzgaBeratungsstellensucheExport\Service;
+namespace Bzga\BzgaBeratungsstellensucheExport\Service;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -17,7 +17,7 @@ namespace BZgA\BzgaBeratungsstellensucheExport\Service;
 
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
-use BZgA\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
+use Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**

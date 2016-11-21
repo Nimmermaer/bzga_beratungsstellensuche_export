@@ -16,10 +16,8 @@ namespace BZga\BzgaBeratungsstellensucheExport\Command;
  */
 
 use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
-use BZgA\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer;
-use BZgA\BzgaBeratungsstellensucheExport\Factories\RSAFactory;
-use BZgA\BzgaBeratungsstellensucheExport\Factories\SFTPFactory;
-use BZgA\BzgaBeratungsstellensucheExport\Service\ConnectionService;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\PageSerializer;
+use Bzga\BzgaBeratungsstellensucheExport\Factories\ConnectionServiceFactory;
 
 /**
  * @package TYPO3
@@ -30,16 +28,21 @@ class ExportCommandController extends CommandController
 {
 
     /**
-     * @var \BZgA\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository
+     * @var \Bzga\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository
      * @inject
      */
     protected $entryRepository;
 
     /**
-     * @var \BZga\BzgaBeratungsstellensucheExport\Configuration\Manager
+     * @var \Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager
      * @inject
      */
     protected $configurationManager;
+
+    /**
+     * @var \Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer
+     */
+    protected $serializer;
 
     /**
      * Export entries to defined format
@@ -50,21 +53,8 @@ class ExportCommandController extends CommandController
     {
         $entries = $this->entryRepository->findAll();
         if (!empty($entries)) {
-            $serializer = $this->objectManager->get(EtbSerializer::class);
-
-            $data = $serializer->serialize($entries->toArray(), $type);
-
-            $configuration = $this->configurationManager->getConfiguration();
-
-            $rsa = RSAFactory::createInstance($configuration->getPathToPrivateKeyFile(),
-                $configuration->getPathToPublicKeyFile());
-
-            $sftp = SFTPFactory::createInstance($configuration->getHost());
-
-            $connectionService = $this->objectManager->get(ConnectionService::class, $rsa, $sftp,
-                $configuration->getUsernames());
-
-            /* @var $connectionService ConnectionService */
+            $data = $this->serializer->serialize($entries->toArray(), $type);
+            $connectionService = ConnectionServiceFactory::createInstance();
             $connectionService->upload($data);
 
         }
