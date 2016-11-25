@@ -14,14 +14,11 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
-use phpseclib\Crypt\RSA;
 use Bzga\BzgaBeratungsstellensucheExport\Exception\FileNotFoundException;
+use phpseclib\Crypt\RSA;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class RSAFactory
@@ -51,5 +48,4 @@ class RSAFactory
 
         return $rsa;
     }
-
 }

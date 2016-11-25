@@ -15,19 +15,16 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Model;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use SJBR\StaticInfoTables\Domain\Model\AbstractEntity;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche
  * @author Sebastian Schreiber
  */
 class CountryZone extends AbstractEntity
 {
 
     /**
-     * @var integer
+     * @var int
      */
     protected $etbId;
 
@@ -46,5 +43,4 @@ class CountryZone extends AbstractEntity
     {
         $this->etbId = $etbId;
     }
-
 }

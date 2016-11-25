@@ -16,8 +16,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Exception;
  */
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class FileNotFoundException extends \RuntimeException
@@ -38,5 +36,4 @@ class FileNotFoundException extends \RuntimeException
     {
         return new static('The private key file could not be found');
     }
-
 }

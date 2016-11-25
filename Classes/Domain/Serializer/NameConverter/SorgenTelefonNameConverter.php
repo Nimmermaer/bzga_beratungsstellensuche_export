@@ -14,13 +14,10 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class SorgenTelefonNameConverter implements NameConverterInterface
@@ -29,7 +26,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     /**
      * @var array
      */
-    protected $mapNames = array(
+    protected $mapNames = [
         'external_id' => 'ID_intern',
         'title' => 'Name',
         'etb_additional_address' => 'Adressenzusatz',
@@ -57,7 +54,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
         'etb_district' => 'Landkreis',
         'etb_country' => 'Land',
         'etb_contact_person_telephone' => 'Telefon zentrale Ansprechperson',
-    );
+    ];
 
     /**
      * @param string $propertyName
@@ -92,6 +89,4 @@ class SorgenTelefonNameConverter implements NameConverterInterface
         return array_map('\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToLowerCamelCase',
             array_keys($this->mapNames));
     }
-
-
 }

@@ -16,8 +16,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Model;
  */
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
@@ -120,7 +118,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
      */
     public function getEtbCategories()
     {
-        $categoryUids = array();
+        $categoryUids = [];
         if ($this->categories->count() > 0) {
             $categories = $this->categories->toArray();
             foreach ($categories as $category) {
@@ -133,7 +131,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getEtbState()
     {
@@ -152,7 +150,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     public function getEtbDescription()
     {
         $description = strip_tags($this->description, '<br><br />');
-        $description = str_replace(array('<br>', '<br />'), array('+++br+++'), $description);
+        $description = str_replace(['<br>', '<br />'], ['+++br+++'], $description);
 
         return $description;
     }
@@ -164,5 +162,4 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     {
         return '';
     }
-
 }

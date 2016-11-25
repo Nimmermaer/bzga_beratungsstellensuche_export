@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 // Hook configuration
-$project = 'bzga_books';
+$project = 'bzga_beratungsstellensuche_export';
 
 echo PHP_EOL;
 

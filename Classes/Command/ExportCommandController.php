@@ -14,14 +14,10 @@ namespace BZga\BzgaBeratungsstellensucheExport\Command;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
-use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
-use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\PageSerializer;
 use Bzga\BzgaBeratungsstellensucheExport\Factories\ConnectionServiceFactory;
+use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class ExportCommandController extends CommandController
@@ -56,8 +52,6 @@ class ExportCommandController extends CommandController
             $data = $this->serializer->serialize($entries->toArray(), $type);
             $connectionService = ConnectionServiceFactory::createInstance();
             $connectionService->upload($data);
-
         }
     }
-
 }

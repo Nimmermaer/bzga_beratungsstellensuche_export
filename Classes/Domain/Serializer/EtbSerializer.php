@@ -3,7 +3,6 @@
 
 namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
 
-
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -16,14 +15,13 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
-use Symfony\Component\Serializer\SerializerInterface;
-use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\CsvEncoder;
-use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
+use Symfony\Component\Serializer\SerializerInterface;
+use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 
 class EtbSerializer implements SerializerInterface
 {
@@ -46,15 +44,14 @@ class EtbSerializer implements SerializerInterface
         $normalizer = new ObjectNormalizer(null, $nameConverter);
         $normalizer->setIgnoredAttributes($ignoredAttributes);
         $this->serializer = new Serializer(
-            array(
+            [
                 $normalizer,
-            ),
-            array(
+            ],
+            [
                 new CsvEncoder('|'),
-            )
+            ]
         );
     }
-
 
     /**
      * @param mixed $data
@@ -62,7 +59,7 @@ class EtbSerializer implements SerializerInterface
      * @param array $context
      * @return string
      */
-    public function serialize($data, $format, array $context = array())
+    public function serialize($data, $format, array $context = [])
     {
         return $this->serializer->serialize($data, 'csv');
     }
@@ -75,10 +72,8 @@ class EtbSerializer implements SerializerInterface
      * @return void
      * @throws \BadMethodCallException
      */
-    public function deserialize($data, $type, $format, array $context = array())
+    public function deserialize($data, $type, $format, array $context = [])
     {
         throw new \BadMethodCallException('This method is not implemented yet');
     }
-
-
 }

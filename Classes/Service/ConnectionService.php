@@ -14,15 +14,12 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Service;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
+use Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
-use Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class ConnectionService
@@ -39,7 +36,6 @@ class ConnectionService
      * @var array
      */
     private $usernames;
-
 
     /**
      * ConnectionService constructor.
@@ -64,7 +60,7 @@ class ConnectionService
      */
     public function upload($data, $filenamePrefix = 'bzga_beratungsstellen_', $remoteDirectory = 'home')
     {
-        $filename = $filenamePrefix.date('Ymd', time());
+        $filename = $filenamePrefix . date('Ymd', time());
         $connectionEstablished = false;
         foreach ($this->usernames as $username) {
             if (true === $this->sftp->login($username, $this->key)) {

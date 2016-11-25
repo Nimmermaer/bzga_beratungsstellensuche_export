@@ -14,12 +14,9 @@ namespace BZga\BzgaBeratungsstellensucheExport\Domain\Model\Dto;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class Configuration
@@ -49,7 +46,7 @@ class Configuration
      * Configuration constructor.
      * @param array $configuration
      */
-    public function __construct(array $configuration = array())
+    public function __construct(array $configuration = [])
     {
         foreach ($configuration as $key => $value) {
             $propertyKey = GeneralUtility::underscoredToLowerCamelCase($key);
@@ -90,6 +87,4 @@ class Configuration
     {
         return $this->pathToPublicKeyFile;
     }
-
-
 }

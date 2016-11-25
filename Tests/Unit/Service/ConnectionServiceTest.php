@@ -15,7 +15,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Service;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use Bzga\BzgaBeratungsstellensucheExport\Service\ConnectionService;
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
@@ -44,8 +43,8 @@ class ConnectionServiceTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->rsa = $this->getMock(RSA::class);
-        $this->sftp = $this->getMock(SFTP::class, array(), array(), '', false);
-        $this->subject = new ConnectionService($this->rsa, $this->sftp, array('username', 'username'));
+        $this->sftp = $this->getMock(SFTP::class, [], [], '', false);
+        $this->subject = new ConnectionService($this->rsa, $this->sftp, ['username', 'username']);
     }
 
     /**
@@ -68,8 +67,5 @@ class ConnectionServiceTest extends \PHPUnit_Framework_TestCase
         $this->sftp->expects($this->once())->method('put');
         $this->sftp->expects($this->once())->method('disconnect');
         $this->subject->upload('some');
-
-
     }
-
 }

@@ -14,14 +14,11 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
+use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 use Bzga\BzgaBeratungsstellensucheExport\Service\ConnectionService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class ConnectionServiceFactory
@@ -42,7 +39,5 @@ class ConnectionServiceFactory
         $connectionService = new ConnectionService($rsa, $sftp, $configuration->getUsernames());
 
         return $connectionService;
-
     }
-
 }

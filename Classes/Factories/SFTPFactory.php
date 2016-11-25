@@ -14,12 +14,9 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use phpseclib\Net\SFTP;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class SFTPFactory
@@ -40,5 +37,4 @@ class SFTPFactory
 
         return $connection;
     }
-
 }

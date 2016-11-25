@@ -15,9 +15,7 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
-
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,6 +37,4 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('pathToPublicKeyFile', $configuration->getPathToPublicKeyFile());
         $this->assertSame('usernames', $configuration->getUsernames());
     }
-
-
 }

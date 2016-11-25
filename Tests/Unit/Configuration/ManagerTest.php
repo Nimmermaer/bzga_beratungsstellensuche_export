@@ -15,7 +15,6 @@ namespace BZga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use BZga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -73,5 +72,4 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         $params = ['usernames' => 'username', 'host' => 'host', 'path_to_private_key_file' => 'private'];
         $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'] = serialize($params);
     }
-
 }

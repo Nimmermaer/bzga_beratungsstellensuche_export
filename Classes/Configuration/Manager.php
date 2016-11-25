@@ -14,14 +14,11 @@ namespace BZga\BzgaBeratungsstellensucheExport\Configuration;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
+use BZga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use BZga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class Manager implements SingletonInterface
@@ -52,7 +49,7 @@ class Manager implements SingletonInterface
         $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export']);
 
         if (!is_array($settings)) {
-            $settings = array();
+            $settings = [];
         }
 
         return $settings;

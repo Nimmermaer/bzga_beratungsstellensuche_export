@@ -16,11 +16,8 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Exception;
  */
 
 /**
- * @package TYPO3
- * @subpackage bzga_beratungsstellensuche_exporter
  * @author Sebastian Schreiber
  */
 class AccessDeniedException extends \RuntimeException
 {
-
 }
