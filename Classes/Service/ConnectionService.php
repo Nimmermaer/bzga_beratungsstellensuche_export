@@ -28,10 +28,12 @@ class ConnectionService
      * @var RSA
      */
     private $key;
+
     /**
      * @var SFTP
      */
     private $sftp;
+
     /**
      * @var array
      */
@@ -50,7 +52,7 @@ class ConnectionService
         if (is_string($usernames)) {
             $usernames = GeneralUtility::trimExplode(',', $usernames);
         }
-        $this->usernames = $usernames;
+        $this->usernames = (array)$usernames;
     }
 
     /**

@@ -12,9 +12,15 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '6.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '6.2.10-6.99.99',
+            'typo3' => '6.2.10-8.6.99',
             'bzga_beratungsstellensuche' => '6.2.0-6.99.99',
         ],
         'conflicts' => [],
+    ],
+    'autoload' => [
+        'classmap' => ['Classes']
+    ],
+    'autoload-dev' => [
+        'classmap' => ['Tests']
     ],
 ];

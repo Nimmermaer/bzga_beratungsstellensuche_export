@@ -2,8 +2,15 @@
   "name": "bzga/bzga-beratungsstellensuche-export",
   "type": "typo3-cms-extension",
   "description": "Export der Beratungsstellen",
-  "version": "6.2.0",
   "license": "GPL-2.0+",
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/sabbelasichon/bzga_beratungsstellensuche.git"
+    }
+  ],
   "authors": [
     {
       "name": "Sebastian Schreiber",
@@ -18,17 +25,30 @@
   ],
   "autoload": {
     "psr-4": {
-      "Bzga\\BzgaBeratungsstellensucheEssstoerungen\\": "Classes"
+      "Bzga\\BzgaBeratungsstellensucheFamilienplanung\\": "Classes/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Bzga\\BzgaBeratungsstellensucheEssstoerungen\\": "Tests"
+      "Bzga\\BzgaBeratungsstellensucheExport\\Tests\\": "Tests/",
+      "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/",
+      "TYPO3\\CMS\\Fluid\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
     }
   },
   "require": {
-    "typo3/cms-core": ">=6.2.10,<7.0",
+    "typo3/cms-core": "^6.2 || ^7.6 || ^8.7",
     "php": ">=5.5.9"
+  },
+  "require-dev": {
+    "bzga/bzga-beratungsstellensuche": "*",
+    "phpunit/phpunit": "^4.7 || ^5.0",
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "nimut/testing-framework": "^1.0",
+    "symfony/serializer": "^3.0",
+    "ezyang/htmlpurifier": "^4.8",
+    "egeloen/google-map": "^2.0",
+    "willdurand/geocoder": "^3.3",
+    "sjbr/static-info-tables": "^6.0"
   },
   "suggest": {
     "bzga/bzga-beratungsstellensuche": "We need the core extension"
@@ -37,9 +57,28 @@
     "bzga_beratungsstellensuche_export": "self.version",
     "bzga/bzga-beratungsstellensuche-export": "self.version"
   },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin",
+    "preferred-install": {
+      "typo3/cms": "source",
+      "typo3/cms-core": "source",
+      "*": "dist"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/bzga_beratungsstellensuche_export ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/bzga_beratungsstellensuche_export"
+    ]
+  },
   "extra": {
     "branch-alias": {
       "dev-master": "6.2.x-dev"
+    },
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
     }
   }
 }

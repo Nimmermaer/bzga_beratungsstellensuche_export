@@ -23,7 +23,7 @@ class SFTPFactory
 {
 
     /**
-     * @param $host
+     * @param string $host
      * @throws \InvalidArgumentException
      * @return SFTP
      */
@@ -33,8 +33,6 @@ class SFTPFactory
             throw new \InvalidArgumentException('This is not a valid host or ip');
         }
 
-        $connection = new SFTP($host);
-
-        return $connection;
+        return new SFTP($host);
     }
 }
