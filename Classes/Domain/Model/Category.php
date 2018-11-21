@@ -26,6 +26,6 @@ class Category extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Category
      */
     public function getEtbId()
     {
-        return array_search($this->getExternalId(), [200 => 2, 210 => 1, 220 => 3]);
+        return array_search($this->getExternalId(), [200 => 2, 210 => 1, 220 => 3], false);
     }
 }

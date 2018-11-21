@@ -15,7 +15,7 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Factories;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use Bzga\BzgaBeratungsstellensucheExport\Factories\RSAFactory;
+use Bzga\BzgaBeratungsstellensucheExport\Factory\RSAFactory;
 use org\bovigo\vfs\vfsStream;
 use phpseclib\Crypt\RSA;
 

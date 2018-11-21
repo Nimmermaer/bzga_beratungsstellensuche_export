@@ -72,7 +72,7 @@ class ConnectionService
         }
 
         if (false === $connectionEstablished) {
-            throw new AccessDeniedException();
+            throw new AccessDeniedException('Connection could not be established. Wrong credentials given.');
         }
 
         $this->sftp->chdir($remoteDirectory);

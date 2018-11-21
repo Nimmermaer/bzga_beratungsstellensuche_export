@@ -1,6 +1,6 @@
 <?php
 
-namespace Bzga\BzgaBeratungsstellensucheExport\Factories;
+namespace Bzga\BzgaBeratungsstellensucheExport\Factory;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -30,7 +30,7 @@ class ConnectionServiceFactory
     public static function createInstance()
     {
         $configurationManager = GeneralUtility::makeInstance(Manager::class);
-        /* @var $configurationManager Manager */
+        /** @var $configurationManager Manager */
         $configuration = $configurationManager->getConfiguration();
 
         $rsa = RSAFactory::createInstance($configuration->getPathToPrivateKeyFile(),

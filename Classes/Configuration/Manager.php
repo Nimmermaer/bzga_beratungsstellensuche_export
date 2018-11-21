@@ -27,7 +27,7 @@ class Manager implements SingletonInterface
     /**
      * @var null|Configuration
      */
-    private static $configuration = null;
+    private static $configuration;
 
     /**
      * @return Configuration

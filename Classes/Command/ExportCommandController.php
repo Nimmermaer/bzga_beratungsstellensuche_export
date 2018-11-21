@@ -14,7 +14,11 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Command;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use Bzga\BzgaBeratungsstellensucheExport\Factories\ConnectionServiceFactory;
+
+use Bzga\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository;
+use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer;
+use Bzga\BzgaBeratungsstellensucheExport\Factory\ConnectionServiceFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 
 /**
@@ -24,21 +28,34 @@ class ExportCommandController extends CommandController
 {
 
     /**
-     * @var \Bzga\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository
-     * @inject
+     * @var EntryRepository
      */
     protected $entryRepository;
 
     /**
-     * @var \Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager
-     * @inject
+     * @var Manager
      */
     protected $configurationManager;
 
     /**
-     * @var \Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer
+     * @var EtbSerializer
      */
     protected $serializer;
+
+    /**
+     * ExportCommandController constructor.
+     *
+     * @param EntryRepository $entryRepository
+     * @param Manager $configurationManager
+     * @param EtbSerializer $serializer
+     */
+    public function __construct(EntryRepository $entryRepository, Manager $configurationManager, EtbSerializer $serializer)
+    {
+        $this->entryRepository = $entryRepository;
+        $this->configurationManager = $configurationManager;
+        $this->serializer = $serializer;
+    }
+
 
     /**
      * Export entries to defined format
