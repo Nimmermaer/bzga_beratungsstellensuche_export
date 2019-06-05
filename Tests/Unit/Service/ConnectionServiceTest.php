@@ -28,17 +28,16 @@ class ConnectionServiceTest extends \PHPUnit_Framework_TestCase
     private $subject;
 
     /**
-     * @var SFTP|\PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject|SFTP
      */
     private $sftp;
 
     /**
-     * @var RSA|\PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject|RSA
      */
     private $rsa;
 
     /**
-     * @return void
      */
     protected function setUp()
     {

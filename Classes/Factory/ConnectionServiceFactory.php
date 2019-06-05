@@ -33,8 +33,10 @@ class ConnectionServiceFactory
         /** @var $configurationManager Manager */
         $configuration = $configurationManager->getConfiguration();
 
-        $rsa = RSAFactory::createInstance($configuration->getPathToPrivateKeyFile(),
-            $configuration->getPathToPublicKeyFile());
+        $rsa = RSAFactory::createInstance(
+            $configuration->getPathToPrivateKeyFile(),
+            $configuration->getPathToPublicKeyFile()
+        );
         $sftp = SFTPFactory::createInstance($configuration->getHost());
         $connectionService = new ConnectionService($rsa, $sftp, $configuration->getUsernames());
 

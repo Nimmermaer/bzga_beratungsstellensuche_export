@@ -14,7 +14,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Command;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use Bzga\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository;
 use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer;
@@ -55,7 +54,6 @@ class ExportCommandController extends CommandController
         $this->configurationManager = $configurationManager;
         $this->serializer = $serializer;
     }
-
 
     /**
      * Export entries to defined format

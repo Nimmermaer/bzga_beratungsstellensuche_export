@@ -27,7 +27,6 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
     private $subject;
 
     /**
-     * @return void
      */
     protected function setUp()
     {
@@ -65,7 +64,6 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return void
      */
     private function setGlobalState()
     {

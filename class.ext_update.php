@@ -39,8 +39,10 @@ class ext_update
         $databaseUpdateUtility = $objectManager->get(DatabaseUpdateUtility::class);
         $databaseUpdateUtility->doUpdate('bzga_beratungsstellensuche_export');
 
-        $content .= '<p>' . LocalizationUtility::translate('updateLanguageLabels',
-                'StaticInfoTables') . ' bzga_beratungsstellensuche_export.</p>';
+        $content .= '<p>' . LocalizationUtility::translate(
+            'updateLanguageLabels',
+                'StaticInfoTables'
+        ) . ' bzga_beratungsstellensuche_export.</p>';
 
         return $content;
     }

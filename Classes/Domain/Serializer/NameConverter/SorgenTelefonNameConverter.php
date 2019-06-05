@@ -73,7 +73,6 @@ class SorgenTelefonNameConverter implements NameConverterInterface
 
     /**
      * @param string $propertyName
-     * @return void
      * @throws \BadMethodCallException
      */
     public function denormalize($propertyName)
@@ -86,7 +85,9 @@ class SorgenTelefonNameConverter implements NameConverterInterface
      */
     public function getProperties()
     {
-        return array_map('\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToLowerCamelCase',
-            array_keys($this->mapNames));
+        return array_map(
+            '\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToLowerCamelCase',
+            array_keys($this->mapNames)
+        );
     }
 }

@@ -69,7 +69,6 @@ class EtbSerializer implements SerializerInterface
      * @param string $type
      * @param string $format
      * @param array $context
-     * @return void
      * @throws \BadMethodCallException
      */
     public function deserialize($data, $type, $format, array $context = [])
