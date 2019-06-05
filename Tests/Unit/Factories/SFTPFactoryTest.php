@@ -15,9 +15,10 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Factories;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Factory\SFTPFactory;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use phpseclib\Net\SFTP;
 
-class SFTPFactoryTest extends \PHPUnit_Framework_TestCase
+class SFTPFactoryTest extends UnitTestCase
 {
 
     /**

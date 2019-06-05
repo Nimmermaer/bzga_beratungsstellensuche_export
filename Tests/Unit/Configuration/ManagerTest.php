@@ -1,7 +1,7 @@
 <?php
 
 
-namespace BZga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
+namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -15,10 +15,10 @@ namespace BZga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use BZga\BzgaBeratungsstellensucheExport\Configuration\Manager;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
-class ManagerTest extends \PHPUnit_Framework_TestCase
+class ManagerTest extends UnitTestCase
 {
 
     /**
@@ -30,7 +30,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->subject = GeneralUtility::makeInstance(Manager::class);
+        $this->subject = new Manager();
         $this->setGlobalState();
     }
 

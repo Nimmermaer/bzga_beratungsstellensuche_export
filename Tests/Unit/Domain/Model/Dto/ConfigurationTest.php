@@ -16,8 +16,9 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends UnitTestCase
 {
 
     /**

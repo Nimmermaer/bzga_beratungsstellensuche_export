@@ -16,10 +16,11 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Factories;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Factory\RSAFactory;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use org\bovigo\vfs\vfsStream;
 use phpseclib\Crypt\RSA;
 
-class RSAFactoryTest extends \PHPUnit_Framework_TestCase
+class RSAFactoryTest extends UnitTestCase
 {
 
     /**

@@ -14,7 +14,7 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Configuration;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use BZga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
