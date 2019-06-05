@@ -36,7 +36,8 @@
   "require": {
     "typo3/cms-core": "^8.7",
     "php": ">=7.0.0",
-    "bzga/bzga-beratungsstellensuche": "8.7.*"
+    "bzga/bzga-beratungsstellensuche": "8.7.*",
+    "symfony/property-access": "^3.0"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.0",
