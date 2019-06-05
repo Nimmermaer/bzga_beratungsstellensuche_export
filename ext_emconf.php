@@ -9,18 +9,18 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'Hauptweg Nebenwege GmbH',
     'state' => 'beta',
     'clearCacheOnLoad' => 1,
-    'version' => '6.2.0',
+    'version' => '8.7.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '6.2.10-8.6.99',
-            'bzga_beratungsstellensuche' => '6.2.0-6.99.99',
+            'typo3' => '8.7.0-8.7.99',
+            'bzga_beratungsstellensuche' => '8.7.0',
         ],
         'conflicts' => [],
     ],
     'autoload' => [
-        'classmap' => ['Classes']
+        'psr-4' => ['Bzga\\BzgaBeratungsstellensucheExport\\' => 'Classes']
     ],
     'autoload-dev' => [
-        'classmap' => ['Tests']
+        'psr-4' => ['Bzga\\BzgaBeratungsstellensucheExport\\Tests\\' => 'Tests']
     ],
 ];
