@@ -15,6 +15,8 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use BadMethodCallException;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
@@ -59,9 +61,9 @@ class EtbSerializer implements SerializerInterface
      * @param array $context
      * @return string
      */
-    public function serialize($data, $format, array $context = [])
+    public function serialize($data, $format, array $context = []): string
     {
-        return $this->serializer->serialize($data, 'csv');
+        return $this->serializer->serialize($data, 'csv', [CsvEncoder::HEADERS_KEY => array_values(SorgenTelefonNameConverter::$mapNames)]);
     }
 
     /**
@@ -69,10 +71,10 @@ class EtbSerializer implements SerializerInterface
      * @param string $type
      * @param string $format
      * @param array $context
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function deserialize($data, $type, $format, array $context = [])
     {
-        throw new \BadMethodCallException('This method is not implemented yet');
+        throw new BadMethodCallException('This method is not implemented yet');
     }
 }

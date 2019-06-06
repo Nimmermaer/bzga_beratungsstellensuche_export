@@ -14,6 +14,8 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use BadMethodCallException;
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -26,7 +28,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     /**
      * @var array
      */
-    protected $mapNames = [
+    public static $mapNames = [
         'external_id' => 'ID_intern',
         'title' => 'Name',
         'etb_additional_address' => 'Adressenzusatz',
@@ -58,36 +60,33 @@ class SorgenTelefonNameConverter implements NameConverterInterface
 
     /**
      * @param string $propertyName
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      * @return string
      */
-    public function normalize($propertyName)
+    public function normalize($propertyName): string
     {
-        $propertyName = GeneralUtility::camelCaseToLowerCaseUnderscored($propertyName);
-        if (isset($this->mapNames[$propertyName])) {
-            $propertyName = $this->mapNames[$propertyName];
-        }
+        $propertyName = static::$mapNames[$propertyName] ?? GeneralUtility::camelCaseToLowerCaseUnderscored($propertyName);
 
         return $propertyName;
     }
 
     /**
      * @param string $propertyName
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function denormalize($propertyName)
     {
-        throw new \BadMethodCallException('This function is not implemented yet');
+        throw new BadMethodCallException('This function is not implemented yet');
     }
 
     /**
      * @return array
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return array_map(
             '\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToLowerCamelCase',
-            array_keys($this->mapNames)
+            array_keys(static::$mapNames)
         );
     }
 }
