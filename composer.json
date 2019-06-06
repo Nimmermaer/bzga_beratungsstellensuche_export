@@ -37,11 +37,13 @@
     "typo3/cms-core": "^8.7",
     "php": ">=7.0.0",
     "bzga/bzga-beratungsstellensuche": "8.7.*",
-    "symfony/property-access": "^3.0"
+    "symfony/property-access": "^3.0",
+    "phpseclib/phpseclib": "^2.0"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.0",
-    "nimut/testing-framework": "^1.0 || ^2.0 || ^3.0 || ^4.0"
+    "nimut/testing-framework": "^1.0 || ^2.0 || ^3.0 || ^4.0",
+    "mikey179/vfsstream": "^1.6"
   },
   "replace": {
     "bzga_beratungsstellensuche_export": "self.version",
