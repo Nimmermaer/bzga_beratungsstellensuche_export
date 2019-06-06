@@ -14,7 +14,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use BadMethodCallException;
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

@@ -15,7 +15,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use BadMethodCallException;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
