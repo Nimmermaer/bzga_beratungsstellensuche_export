@@ -14,6 +14,8 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Factory;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use InvalidArgumentException;
 use phpseclib\Net\SFTP;
 
 /**
@@ -24,13 +26,13 @@ class SFTPFactory
 
     /**
      * @param string $host
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @return SFTP
      */
-    public static function createInstance($host)
+    public static function createInstance($host): SFTP
     {
         if (false === filter_var($host, FILTER_VALIDATE_IP) && false === filter_var($host, FILTER_VALIDATE_URL)) {
-            throw new \InvalidArgumentException('This is not a valid host or ip');
+            throw new InvalidArgumentException('This is not a valid host or ip');
         }
 
         return new SFTP($host);
