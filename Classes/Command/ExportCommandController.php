@@ -18,6 +18,7 @@ use Bzga\BzgaBeratungsstellensuche\Domain\Repository\EntryRepository;
 use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\EtbSerializer;
 use Bzga\BzgaBeratungsstellensucheExport\Factory\ConnectionServiceFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 
 /**
@@ -67,6 +68,21 @@ class ExportCommandController extends CommandController
             $data = $this->serializer->serialize($entries->toArray(), $type);
             $connectionService = ConnectionServiceFactory::createInstance();
             $connectionService->upload($data);
+        }
+    }
+
+    /**
+     * Export entries in defined format to local file
+     *
+     * @param string $pathToFile
+     * @param string $type
+     */
+    public function exportToFileCommand(string $pathToFile, string $type = 'csv')
+    {
+        $entries = $this->entryRepository->findAll();
+        if (!empty($entries)) {
+            $data = $this->serializer->serialize($entries->toArray(), $type);
+            GeneralUtility::writeFile(GeneralUtility::getFileAbsFileName($pathToFile), $data);
         }
     }
 }

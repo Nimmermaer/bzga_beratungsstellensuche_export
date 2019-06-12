@@ -37,22 +37,23 @@ class ConnectionService
     /**
      * @var array
      */
-    private $usernames;
+    private $userNames;
 
     /**
      * ConnectionService constructor.
+     *
      * @param RSA $key
      * @param SFTP $sftp
-     * @param array|string $usernames
+     * @param array|string $userNames
      */
-    public function __construct(RSA $key, SFTP $sftp, $usernames)
+    public function __construct(RSA $key, SFTP $sftp, $userNames)
     {
         $this->key = $key;
         $this->sftp = $sftp;
-        if (is_string($usernames)) {
-            $usernames = GeneralUtility::trimExplode(',', $usernames);
+        if (is_string($userNames)) {
+            $userNames = GeneralUtility::trimExplode(',', $userNames);
         }
-        $this->usernames = (array)$usernames;
+        $this->userNames = (array)$userNames;
     }
 
     /**
@@ -62,9 +63,9 @@ class ConnectionService
      */
     public function upload($data, $filenamePrefix = 'bzga_beratungsstellen_', $remoteDirectory = 'home')
     {
-        $filename = $filenamePrefix . date('Ymd', time());
+        $filename = $filenamePrefix . date('Ymd');
         $connectionEstablished = false;
-        foreach ($this->usernames as $username) {
+        foreach ($this->userNames as $username) {
             if (true === $this->sftp->login($username, $this->key)) {
                 $connectionEstablished = true;
                 break;
