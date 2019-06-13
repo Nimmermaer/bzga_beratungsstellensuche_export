@@ -147,7 +147,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
      *
      * @return string $description
      */
-    public function getEtbDescription()
+    public function getEtbDescription(): string
     {
         $description = strip_tags($this->description, '<br><br />');
         $description = str_replace(['<br>', '<br />'], '+++br+++', $description);
@@ -158,7 +158,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    private function returnEmpty()
+    private function returnEmpty(): string
     {
         return '';
     }

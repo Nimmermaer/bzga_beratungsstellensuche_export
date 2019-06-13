@@ -25,22 +25,22 @@ class Configuration
     /**
      * @var string
      */
-    protected $host;
+    protected $host = '';
 
     /**
-     * @var array
+     * @var array|string
      */
     protected $usernames;
 
     /**
      * @var string
      */
-    protected $pathToPrivateKeyFile;
+    protected $pathToPrivateKeyFile = '';
 
     /**
      * @var string
      */
-    protected $pathToPublicKeyFile;
+    protected $pathToPublicKeyFile = '';
 
     /**
      * Configuration constructor.
@@ -59,13 +59,13 @@ class Configuration
     /**
      * @return string
      */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
 
     /**
-     * @return array
+     * @return array|string
      */
     public function getUsernames()
     {
@@ -75,7 +75,7 @@ class Configuration
     /**
      * @return string
      */
-    public function getPathToPrivateKeyFile()
+    public function getPathToPrivateKeyFile(): string
     {
         return $this->pathToPrivateKeyFile;
     }
@@ -83,7 +83,7 @@ class Configuration
     /**
      * @return string
      */
-    public function getPathToPublicKeyFile()
+    public function getPathToPublicKeyFile(): string
     {
         return $this->pathToPublicKeyFile;
     }

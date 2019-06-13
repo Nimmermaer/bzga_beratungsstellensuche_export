@@ -22,7 +22,7 @@ class Category extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Category
     /**
      * Static transformation of category uid for export.
      *
-     * @return int
+     * @return int|false|string
      */
     public function getEtbId()
     {

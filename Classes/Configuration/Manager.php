@@ -32,7 +32,7 @@ class Manager implements SingletonInterface
     /**
      * @return Configuration
      */
-    public function getConfiguration()
+    public function getConfiguration(): Configuration
     {
         if (null === self::$configuration) {
             self::$configuration = GeneralUtility::makeInstance(Configuration::class, $this->getSettings());
@@ -44,8 +44,12 @@ class Manager implements SingletonInterface
     /**
      * @return array
      */
-    public function getSettings()
+    public function getSettings(): array
     {
+        if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'])) {
+            return [];
+        }
+
         $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export']);
 
         if (!is_array($settings)) {
