@@ -49,7 +49,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
         'website' => 'Internet-Adresse',
         'etb_categories' => 'Angebotsprofil',
         'etb_type' => 'Art der Einrichtung',
-        'etb_description' => 'Besonderheiten',
+        'description' => 'Besonderheiten',
         'consulting_agreement' => 'Beratungsschein',
         'etb_competence' => 'Beratungsfachkraft vertrauliche Geburt',
         'etb_district' => 'Landkreis',

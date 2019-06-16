@@ -14,7 +14,6 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Factory;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use InvalidArgumentException;
 use phpseclib\Net\SFTP;
 

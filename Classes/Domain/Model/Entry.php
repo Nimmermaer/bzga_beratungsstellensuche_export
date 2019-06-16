@@ -36,7 +36,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
      *
      * @return int
      */
-    public function getEtbType()
+    public function getEtbType(): int
     {
         return self::ETB_TYPE;
     }
@@ -44,7 +44,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbAdditionalAddress()
+    public function getEtbAdditionalAddress(): string
     {
         return $this->returnEmpty();
     }
@@ -52,7 +52,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbContactPersonTelephone()
+    public function getEtbContactPersonTelephone(): string
     {
         return $this->returnEmpty();
     }
@@ -60,7 +60,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbCountry()
+    public function getEtbCountry(): string
     {
         return self::ETB_COUNTRY_ID;
     }
@@ -68,7 +68,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbDistrict()
+    public function getEtbDistrict(): string
     {
         return $this->returnEmpty();
     }
@@ -76,7 +76,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbEmailClient()
+    public function getEtbEmailClient(): string
     {
         return $this->returnEmpty();
     }
@@ -84,7 +84,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbCompetence()
+    public function getEtbCompetence(): string
     {
         return $this->returnEmpty();
     }
@@ -92,7 +92,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbQuarter()
+    public function getEtbQuarter(): string
     {
         return $this->returnEmpty();
     }
@@ -100,7 +100,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbDirections()
+    public function getEtbDirections(): string
     {
         return $this->returnEmpty();
     }
@@ -108,7 +108,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbAvailability()
+    public function getEtbAvailability(): string
     {
         return $this->returnEmpty();
     }
@@ -116,13 +116,13 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @return string
      */
-    public function getEtbCategories()
+    public function getEtbCategories(): string
     {
         $categoryUids = [];
         if ($this->categories->count() > 0) {
             $categories = $this->categories->toArray();
             foreach ($categories as $category) {
-                /* @var $category \Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Category */
+                /** @var $category Category */
                 $categoryUids[] = $category->getEtbId();
             }
         }
@@ -131,7 +131,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     }
 
     /**
-     * @return int
+     * @return int|string
      */
     public function getEtbState()
     {
@@ -140,19 +140,6 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
         }
 
         return $this->returnEmpty();
-    }
-
-    /**
-     * Returns the description.
-     *
-     * @return string $description
-     */
-    public function getEtbDescription(): string
-    {
-        $description = strip_tags($this->description, '<br><br />');
-        $description = str_replace(['<br>', '<br />'], '+++br+++', $description);
-
-        return $description;
     }
 
     /**

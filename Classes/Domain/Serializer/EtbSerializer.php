@@ -18,8 +18,8 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer;
 use BadMethodCallException;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Entry;
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\NameConverter\SorgenTelefonNameConverter;
+use Bzga\BzgaBeratungsstellensucheExport\Domain\Serializer\Normalizer\EtbNormalizer;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
@@ -42,7 +42,7 @@ class EtbSerializer implements SerializerInterface
         $nameConverter = new SorgenTelefonNameConverter();
         $exposedProperties = $nameConverter->getProperties();
         $ignoredAttributes = array_diff($properties, $exposedProperties);
-        $normalizer = new ObjectNormalizer(null, $nameConverter);
+        $normalizer = new EtbNormalizer(null, $nameConverter);
         $normalizer->setIgnoredAttributes($ignoredAttributes);
         $this->serializer = new Serializer(
             [
