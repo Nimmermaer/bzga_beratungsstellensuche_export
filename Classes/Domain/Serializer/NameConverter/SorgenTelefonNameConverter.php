@@ -64,7 +64,9 @@ class SorgenTelefonNameConverter implements NameConverterInterface
      */
     public function normalize($propertyName): string
     {
-        $propertyName = static::$mapNames[$propertyName] ?? GeneralUtility::camelCaseToLowerCaseUnderscored($propertyName);
+        $propertyName = GeneralUtility::camelCaseToLowerCaseUnderscored($propertyName);
+
+        $propertyName = static::$mapNames[$propertyName] ?? $propertyName;
 
         return $propertyName;
     }

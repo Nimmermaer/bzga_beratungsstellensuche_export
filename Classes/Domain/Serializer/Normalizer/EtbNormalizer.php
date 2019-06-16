@@ -48,7 +48,7 @@ final class EtbNormalizer extends ObjectNormalizer
     private function cleanValue(string $value): string
     {
         $value = strip_tags($value, '<br><br />');
-        $value = str_replace(['<br>', '<br />', "\r\n", "\r"], ['+++br+++', '+++br+++', "\n", "\n"], $value);
+        $value = str_replace(['<br>', '<br />', "\r\n", "\r", "\n"], '+++br+++', $value);
 
         return trim($value);
     }
