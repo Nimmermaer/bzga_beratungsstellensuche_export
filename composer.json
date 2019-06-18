@@ -8,7 +8,8 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/sabbelasichon/bzga_beratungsstellensuche.git"
+      "url": "https://github.com/sabbelasichon/bzga_beratungsstellensuche.git",
+      "no-api": true
     }
   ],
   "authors": [
