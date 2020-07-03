@@ -15,25 +15,25 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Factories;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Factory\SFTPFactory;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use phpseclib\Net\SFTP;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class SFTPFactoryTest extends UnitTestCase
 {
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
      */
-    public function createInstanceWrongHost()
+    public function createInstanceWrongHost(): void
     {
-        $sftp = SFTPFactory::createInstance('thisisnotvalid');
+        $this->expectException(\InvalidArgumentException::class);
+        SFTPFactory::createInstance('thisisnotvalid');
     }
 
     /**
      * @test
      */
-    public function createInstanceWithIp()
+    public function createInstanceWithIp(): void
     {
         $sftp = SFTPFactory::createInstance('192.168.0.1');
         $this->assertInstanceOf(SFTP::class, $sftp);
@@ -42,7 +42,7 @@ class SFTPFactoryTest extends UnitTestCase
     /**
      * @test
      */
-    public function createInstanceWithTelnetUrl()
+    public function createInstanceWithTelnetUrl(): void
     {
         $sftp = SFTPFactory::createInstance('telnet://melvyl.ucop.edu/');
         $this->assertInstanceOf(SFTP::class, $sftp);

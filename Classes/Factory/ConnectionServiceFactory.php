@@ -23,11 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ConnectionServiceFactory
 {
-
-    /**
-     * @return ConnectionService
-     */
-    public static function createInstance()
+    public static function createInstance(): ConnectionService
     {
         $configurationManager = GeneralUtility::makeInstance(Manager::class);
         /** @var $configurationManager Manager */
@@ -38,8 +34,7 @@ class ConnectionServiceFactory
             $configuration->getPathToPublicKeyFile()
         );
         $sftp = SFTPFactory::createInstance($configuration->getHost());
-        $connectionService = new ConnectionService($rsa, $sftp, $configuration->getUsernames());
 
-        return $connectionService;
+        return new ConnectionService($rsa, $sftp, $configuration->getUsernames());
     }
 }

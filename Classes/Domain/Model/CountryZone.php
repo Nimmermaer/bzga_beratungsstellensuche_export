@@ -28,18 +28,12 @@ class CountryZone extends AbstractEntity
      */
     protected $etbId;
 
-    /**
-     * @return int
-     */
-    public function getEtbId()
+    public function getEtbId(): int
     {
         return $this->etbId;
     }
 
-    /**
-     * @param int $etbId
-     */
-    public function setEtbId($etbId)
+    public function setEtbId(int $etbId): void
     {
         $this->etbId = $etbId;
     }

@@ -40,11 +40,6 @@ final class EtbNormalizer extends ObjectNormalizer
         return $cleanData;
     }
 
-    /**
-     * @param array|string $value
-     *
-     * @return string
-     */
     private function cleanValue(string $value): string
     {
         $value = strip_tags($value, '<br><br />');

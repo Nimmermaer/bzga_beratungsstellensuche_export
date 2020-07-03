@@ -8,12 +8,12 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'ssch@hauptweg-nebenwege.de',
     'author_company' => 'Hauptweg Nebenwege GmbH',
     'state' => 'beta',
-    'clearCacheOnLoad' => 1,
-    'version' => '8.7.0',
+    'clearCacheOnLoad' => 0,
+    'version' => '9.5.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-8.7.99',
-            'bzga_beratungsstellensuche' => '8.7.0',
+            'typo3' => '9.5.0-9.5.99',
+            'bzga_beratungsstellensuche' => '9.5.0',
         ],
         'conflicts' => [],
     ],

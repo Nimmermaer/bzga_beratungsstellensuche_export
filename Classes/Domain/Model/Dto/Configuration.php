@@ -42,10 +42,6 @@ class Configuration
      */
     protected $pathToPublicKeyFile = '';
 
-    /**
-     * Configuration constructor.
-     * @param array $configuration
-     */
     public function __construct(array $configuration = [])
     {
         foreach ($configuration as $key => $value) {
@@ -56,9 +52,6 @@ class Configuration
         }
     }
 
-    /**
-     * @return string
-     */
     public function getHost(): string
     {
         return $this->host;
@@ -72,17 +65,11 @@ class Configuration
         return $this->usernames;
     }
 
-    /**
-     * @return string
-     */
     public function getPathToPrivateKeyFile(): string
     {
         return $this->pathToPrivateKeyFile;
     }
 
-    /**
-     * @return string
-     */
     public function getPathToPublicKeyFile(): string
     {
         return $this->pathToPublicKeyFile;
