@@ -35,10 +35,10 @@
     }
   },
   "require": {
-    "typo3/cms-core": "^8.7",
-    "php": ">=7.0.0",
-    "bzga/bzga-beratungsstellensuche": "8.7.*",
-    "symfony/property-access": "^3.0",
+    "typo3/cms-core": "^9.5",
+    "php": ">=7.2.0",
+    "bzga/bzga-beratungsstellensuche": "^9.5",
+    "symfony/property-access": "^4.0",
     "phpseclib/phpseclib": "^2.0"
   },
   "require-dev": {
@@ -52,10 +52,7 @@
   },
   "config": {
     "vendor-dir": ".Build/vendor",
-    "bin-dir": ".Build/bin",
-    "platform": {
-      "php": "7.0.33"
-    }
+    "bin-dir": ".Build/bin"
   },
   "scripts": {
     "post-autoload-dump": [
@@ -65,7 +62,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "8.7.x-dev"
+      "dev-master": "9.5.x-dev"
     },
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
