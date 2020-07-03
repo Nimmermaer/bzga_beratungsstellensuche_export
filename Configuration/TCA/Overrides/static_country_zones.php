@@ -1,5 +1,6 @@
 <?php
-defined('TYPO3_MODE') or die();
+
+defined('TYPO3_MODE') || die('Access denied.');
 
 $additionalFields = [
     'zn_name_en' => 'etb_id'
