@@ -23,14 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class RSAFactory
 {
-
-    /**
-     * @param string $pathToPrivateKeyFile
-     * @param string $pathToPublicKeyFile
-     * @throws FileNotFoundException
-     * @return RSA
-     */
-    public static function createInstance($pathToPrivateKeyFile, $pathToPublicKeyFile)
+    public static function createInstance(string $pathToPrivateKeyFile, string $pathToPublicKeyFile): RSA
     {
         if (false === file_exists($pathToPublicKeyFile)) {
             throw FileNotFoundException::publicKeyFileNotFound();

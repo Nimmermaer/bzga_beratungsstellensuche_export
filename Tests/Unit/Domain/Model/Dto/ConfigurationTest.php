@@ -16,7 +16,7 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class ConfigurationTest extends UnitTestCase
 {
@@ -24,7 +24,7 @@ class ConfigurationTest extends UnitTestCase
     /**
      * @test
      */
-    public function setConfiguration()
+    public function setConfiguration(): void
     {
         $params = [
             'host' => 'host',

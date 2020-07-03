@@ -32,9 +32,6 @@ class EtbSerializer implements SerializerInterface
      */
     private $serializer;
 
-    /**
-     * EtbSerializer constructor.
-     */
     public function __construct()
     {
         $entry = new Entry();
@@ -55,10 +52,7 @@ class EtbSerializer implements SerializerInterface
     }
 
     /**
-     * @param mixed $data
-     * @param string $format
-     * @param array $context
-     * @return string
+     * @inheritDoc
      */
     public function serialize($data, $format, array $context = []): string
     {
@@ -66,11 +60,7 @@ class EtbSerializer implements SerializerInterface
     }
 
     /**
-     * @param mixed $data
-     * @param string $type
-     * @param string $format
-     * @param array $context
-     * @throws BadMethodCallException
+     * @inheritDoc
      */
     public function deserialize($data, $type, $format, array $context = [])
     {

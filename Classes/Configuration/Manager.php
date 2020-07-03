@@ -29,9 +29,6 @@ class Manager implements SingletonInterface
      */
     private static $configuration;
 
-    /**
-     * @return Configuration
-     */
     public function getConfiguration(): Configuration
     {
         if (null === self::$configuration) {
@@ -41,9 +38,6 @@ class Manager implements SingletonInterface
         return self::$configuration;
     }
 
-    /**
-     * @return array
-     */
     public function getSettings(): array
     {
         if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'])) {

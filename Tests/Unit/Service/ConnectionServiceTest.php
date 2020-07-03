@@ -15,10 +15,12 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Service;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use Bzga\BzgaBeratungsstellensucheExport\Service\ConnectionService;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
+use PHPUnit\Framework\MockObject\MockObject;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class ConnectionServiceTest extends UnitTestCase
 {
@@ -26,21 +28,19 @@ class ConnectionServiceTest extends UnitTestCase
     /**
      * @var ConnectionService
      */
-    private $subject;
+    protected $subject;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|SFTP
+     * @var MockObject|SFTP
      */
-    private $sftp;
+    protected $sftp;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|RSA
+     * @var MockObject|RSA
      */
-    private $rsa;
+    protected $rsa;
 
-    /**
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->rsa = $this->getMockBuilder(RSA::class)->getMock();
         $this->sftp = $this->getMockBuilder(SFTP::class)->disableOriginalConstructor()->getMock();
@@ -49,10 +49,10 @@ class ConnectionServiceTest extends UnitTestCase
 
     /**
      * @test
-     * @expectedException \Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException
      */
-    public function uploadAccessDeniedException()
+    public function uploadAccessDeniedException(): void
     {
+        $this->expectException(AccessDeniedException::class);
         $this->sftp->expects($this->exactly(2))->method('login')->willReturn(false);
         $this->subject->upload('some');
     }
@@ -60,7 +60,7 @@ class ConnectionServiceTest extends UnitTestCase
     /**
      * @test
      */
-    public function uploadSuccessful()
+    public function uploadSuccessful(): void
     {
         $this->sftp->expects($this->once())->method('login')->willReturn(true);
         $this->sftp->expects($this->once())->method('chdir');

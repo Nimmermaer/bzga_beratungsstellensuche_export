@@ -42,13 +42,6 @@ class ExportCommandController extends CommandController
      */
     protected $serializer;
 
-    /**
-     * ExportCommandController constructor.
-     *
-     * @param EntryRepository $entryRepository
-     * @param Manager $configurationManager
-     * @param EtbSerializer $serializer
-     */
     public function __construct(EntryRepository $entryRepository, Manager $configurationManager, EtbSerializer $serializer)
     {
         $this->entryRepository = $entryRepository;
@@ -56,12 +49,7 @@ class ExportCommandController extends CommandController
         $this->serializer = $serializer;
     }
 
-    /**
-     * Export entries to defined format
-     *
-     * @param string $type
-     */
-    public function exportCommand($type = 'csv')
+    public function exportCommand(string $type = 'csv'): void
     {
         $entries = $this->entryRepository->findAll();
         if (!empty($entries)) {
@@ -71,13 +59,7 @@ class ExportCommandController extends CommandController
         }
     }
 
-    /**
-     * Export entries in defined format to local file
-     *
-     * @param string $pathToFile
-     * @param string $type
-     */
-    public function exportToFileCommand(string $pathToFile, string $type = 'csv')
+    public function exportToFileCommand(string $pathToFile, string $type = 'csv'): string
     {
         $entries = $this->entryRepository->findAll();
         if (!empty($entries)) {

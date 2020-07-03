@@ -22,13 +22,7 @@ use phpseclib\Net\SFTP;
  */
 class SFTPFactory
 {
-
-    /**
-     * @param string $host
-     * @throws InvalidArgumentException
-     * @return SFTP
-     */
-    public static function createInstance($host): SFTP
+    public static function createInstance(string $host): SFTP
     {
         if (false === filter_var($host, FILTER_VALIDATE_IP) && false === filter_var($host, FILTER_VALIDATE_URL)) {
             throw new InvalidArgumentException('This is not a valid host or ip');

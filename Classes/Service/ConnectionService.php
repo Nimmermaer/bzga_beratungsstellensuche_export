@@ -39,13 +39,6 @@ class ConnectionService
      */
     private $userNames;
 
-    /**
-     * ConnectionService constructor.
-     *
-     * @param RSA $key
-     * @param SFTP $sftp
-     * @param array|string $userNames
-     */
     public function __construct(RSA $key, SFTP $sftp, $userNames)
     {
         $this->key = $key;
@@ -56,12 +49,7 @@ class ConnectionService
         $this->userNames = (array)$userNames;
     }
 
-    /**
-     * @param string $data
-     * @param string $filenamePrefix
-     * @param string $remoteDirectory
-     */
-    public function upload($data, $filenamePrefix = 'bzga_beratungsstellen_', $remoteDirectory = 'home')
+    public function upload(string $data, string $filenamePrefix = 'bzga_beratungsstellen_', string $remoteDirectory = 'home'): void
     {
         $filename = $filenamePrefix . date('Ymd');
         $connectionEstablished = false;

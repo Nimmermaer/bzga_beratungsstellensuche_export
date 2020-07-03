@@ -41,81 +41,51 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
         return self::ETB_TYPE;
     }
 
-    /**
-     * @return string
-     */
     public function getEtbAdditionalAddress(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbContactPersonTelephone(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbCountry(): string
     {
         return self::ETB_COUNTRY_ID;
     }
 
-    /**
-     * @return string
-     */
     public function getEtbDistrict(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbEmailClient(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbCompetence(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbQuarter(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbDirections(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbAvailability(): string
     {
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     public function getEtbCategories(): string
     {
         $categoryUids = [];
@@ -130,9 +100,6 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
         return implode(',', $categoryUids);
     }
 
-    /**
-     * @return int|string
-     */
     public function getEtbState()
     {
         if ($this->state instanceof \SJBR\StaticInfoTables\Domain\Model\CountryZone) {
@@ -142,9 +109,6 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
         return $this->returnEmpty();
     }
 
-    /**
-     * @return string
-     */
     private function returnEmpty(): string
     {
         return '';

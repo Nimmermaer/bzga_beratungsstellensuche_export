@@ -15,27 +15,28 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Factories;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use Bzga\BzgaBeratungsstellensucheExport\Exception\FileNotFoundException;
 use Bzga\BzgaBeratungsstellensucheExport\Factory\RSAFactory;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use org\bovigo\vfs\vfsStream;
 use phpseclib\Crypt\RSA;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class RSAFactoryTest extends UnitTestCase
 {
 
     /**
      * @test
-     * @expectedException \Bzga\BzgaBeratungsstellensucheExport\Exception\FileNotFoundException
      */
-    public function createInstanceWithNonExistingPrivateKeyFile()
+    public function createInstanceWithNonExistingPrivateKeyFile(): void
     {
-        $rsa = RSAFactory::createInstance(null, null);
+        $this->expectException(FileNotFoundException::class);
+        $rsa = RSAFactory::createInstance('', '');
     }
 
     /**
      * @test
      */
-    public function createInstanceWithCorrectFiles()
+    public function createInstanceWithCorrectFiles(): void
     {
         $rootDirectory = vfsStream::setup('root');
         $directory = vfsStream::newDirectory('files')->at($rootDirectory);

@@ -58,9 +58,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     ];
 
     /**
-     * @param string $propertyName
-     * @throws BadMethodCallException
-     * @return string
+     * @inheritDoc
      */
     public function normalize($propertyName): string
     {
@@ -72,17 +70,13 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     }
 
     /**
-     * @param string $propertyName
-     * @throws BadMethodCallException
+     * @inheritDoc
      */
     public function denormalize($propertyName)
     {
         throw new BadMethodCallException('This function is not implemented yet');
     }
 
-    /**
-     * @return array
-     */
     public function getProperties(): array
     {
         return array_map(

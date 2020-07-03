@@ -16,7 +16,7 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
  * The TYPO3 project - inspiring people to share!
  */
 use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class ManagerTest extends UnitTestCase
 {
@@ -24,11 +24,11 @@ class ManagerTest extends UnitTestCase
     /**
      * @var Manager
      */
-    private $subject;
+    protected $subject;
 
     /**
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Manager();
         $this->setGlobalState();
@@ -37,7 +37,7 @@ class ManagerTest extends UnitTestCase
     /**
      * @test
      */
-    public function configurationSameInstances()
+    public function configurationSameInstances(): void
     {
         $configuration1 = $this->subject->getConfiguration();
         $configuration2 = $this->subject->getConfiguration();
@@ -48,7 +48,7 @@ class ManagerTest extends UnitTestCase
     /**
      * @test
      */
-    public function configurationHasCorrectSettings()
+    public function configurationHasCorrectSettings(): void
     {
         $configuration = $this->subject->getConfiguration();
         $this->assertSame('host', $configuration->getHost());
@@ -57,7 +57,7 @@ class ManagerTest extends UnitTestCase
     /**
      * @test
      */
-    public function getSettings()
+    public function getSettings(): void
     {
         $settings = $this->subject->getSettings();
         $this->assertArrayHasKey('usernames', $settings);
@@ -65,7 +65,7 @@ class ManagerTest extends UnitTestCase
 
     /**
      */
-    private function setGlobalState()
+    private function setGlobalState(): void
     {
         $params = ['usernames' => 'username', 'host' => 'host', 'path_to_private_key_file' => 'private'];
         $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'] = serialize($params);

@@ -20,19 +20,12 @@ namespace Bzga\BzgaBeratungsstellensucheExport\Exception;
  */
 class FileNotFoundException extends \RuntimeException
 {
-
-    /**
-     * @return static
-     */
-    public static function publicKeyFileNotFound()
+    public static function publicKeyFileNotFound(): self
     {
         return new static('The public key file could not be found');
     }
 
-    /**
-     * @return static
-     */
-    public static function privateKeyFileNotFound()
+    public static function privateKeyFileNotFound(): self
     {
         return new static('The private key file could not be found');
     }
