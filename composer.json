@@ -1,74 +1,98 @@
 {
-  "name": "bzga/bzga-beratungsstellensuche-export",
-  "type": "typo3-cms-extension",
-  "description": "Export der Beratungsstellen",
-  "license": "GPL-2.0+",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/sabbelasichon/bzga_beratungsstellensuche.git",
-      "no-api": true
-    }
-  ],
-  "authors": [
-    {
-      "name": "Sebastian Schreiber",
-      "email": "ssch@hauptweg-nebenwege.de",
-      "role": "Developer"
-    },
-    {
-      "name": "Sebastian Hebler",
-      "email": "sh@hauptweg-nebenwege.de",
-      "role": "Projectmanager"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Bzga\\BzgaBeratungsstellensucheExport\\": "Classes/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Bzga\\BzgaBeratungsstellensucheExport\\Tests\\": "Tests/"
-    }
-  },
-  "require": {
-    "typo3/cms-core": "^9.5",
-    "php": ">=7.2.0",
-    "bzga/bzga-beratungsstellensuche": "^9.5",
-    "symfony/property-access": "^4.0",
-    "phpseclib/phpseclib": "^2.0"
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.0",
-    "typo3/testing-framework": "^4.0",
-    "mikey179/vfsstream": "^1.6"
-  },
-  "replace": {
-    "typo3-ter/bzga-beratungsstellensuche-export": "self.version"
-  },
-  "config": {
-    "vendor-dir": ".Build/vendor"
-  },
-  "scripts": {
-    "link-extension": [
-      "@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
-      "@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/bzga_beratungsstellensuche\") || symlink(__DIR__,$extFolder);'"
+    "name": "bzga/bzga-beratungsstellensuche-export",
+    "type": "typo3-cms-extension",
+    "description": "Export der Beratungsstellen",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sabbelasichon/bzga_beratungsstellensuche.git",
+            "no-api": true
+        }
     ],
-    "post-autoload-dump": [
-      "@link-extension"
-    ]
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "9.5.x-dev"
+    "authors": [
+        {
+            "name": "Sebastian Schreiber",
+            "email": "ssch@hauptweg-nebenwege.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Sebastian Hebler",
+            "email": "sh@hauptweg-nebenwege.de",
+            "role": "Projectmanager"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bzga\\BzgaBeratungsstellensucheExport\\": "Classes/"
+        }
     },
-    "typo3/cms": {
-      "extension-key": "bzga_beratungsstellensuche_export",
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".Build/public"
+    "autoload-dev": {
+        "psr-4": {
+            "Bzga\\BzgaBeratungsstellensucheExport\\Tests\\": "Tests/"
+        }
+    },
+    "require": {
+        "typo3/cms-core": "^9.5 || ^10.4",
+        "php": ">=7.3",
+        "bzga/bzga-beratungsstellensuche": "^9.5",
+        "ext-simplexml": "*",
+        "symfony/property-access": "^4.0 || ^5.0",
+        "phpseclib/phpseclib": "^2.0"
+    },
+    "require-dev": {
+        "typo3/testing-framework": "^5.0",
+        "typo3/cms-tstemplate": "^9.0 || ^10.4",
+        "typo3/cms-seo": "^9.0 || ^10.4",
+        "typo3/cms-fluid-styled-content": "^9.0 || ^10.4",
+        "typo3/cms-extensionmanager": "^9.0 || ^10.4",
+        "typo3/cms-belog": "^9.0 || ^10.4",
+        "typo3/cms-rte-ckeditor": "^9.0 || ^10.4",
+        "helhum/typo3-console": "^5.0 || ^6.0",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "typo3/coding-standards": "^0.2.0"
+    },
+    "replace": {
+        "typo3-ter/bzga-beratungsstellensuche-export": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin",
+        "preferred-install": {
+            "typo3/cms": "source",
+            "typo3/cms-core": "source",
+            "*": "dist"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+        ],
+        "test-php-lint": [
+            "parallel-lint ./Classes/",
+            "parallel-lint ./Configuration/TCA/",
+            "parallel-lint ./Tests/"
+        ],
+        "test-php-cs-fixer": [
+            "php-cs-fixer fix -v --dry-run --using-cache false --diff --diff-format=udiff"
+        ],
+        "php-cs-fixer": [
+            "php-cs-fixer fix -v --using-cache false --diff --diff-format=udiff"
+        ],
+        "test-unit": [
+            "phpunit --colors -c Tests/Build/UnitTests.xml"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "9.5.x-dev"
+        },
+        "typo3/cms": {
+            "extension-key": "bzga_beratungsstellensuche_export",
+            "web-dir": ".Build/public",
+            "app-dir": ".Build"
+        }
     }
-  }
 }

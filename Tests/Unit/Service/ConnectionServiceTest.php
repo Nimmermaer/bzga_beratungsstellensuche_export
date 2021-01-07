@@ -1,20 +1,14 @@
 <?php
 
-
-namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Service;
-
-/**
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+/*
+ * This file is part of the "bzga_beratungsstellensuche_export" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
+
+namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Service;
+
 use Bzga\BzgaBeratungsstellensucheExport\Exception\AccessDeniedException;
 use Bzga\BzgaBeratungsstellensucheExport\Service\ConnectionService;
 use phpseclib\Crypt\RSA;
@@ -53,7 +47,7 @@ class ConnectionServiceTest extends UnitTestCase
     public function uploadAccessDeniedException(): void
     {
         $this->expectException(AccessDeniedException::class);
-        $this->sftp->expects($this->exactly(2))->method('login')->willReturn(false);
+        $this->sftp->expects(self::exactly(2))->method('login')->willReturn(false);
         $this->subject->upload('some');
     }
 
@@ -62,10 +56,10 @@ class ConnectionServiceTest extends UnitTestCase
      */
     public function uploadSuccessful(): void
     {
-        $this->sftp->expects($this->once())->method('login')->willReturn(true);
-        $this->sftp->expects($this->once())->method('chdir');
-        $this->sftp->expects($this->once())->method('put');
-        $this->sftp->expects($this->once())->method('disconnect');
+        $this->sftp->expects(self::once())->method('login')->willReturn(true);
+        $this->sftp->expects(self::once())->method('chdir');
+        $this->sftp->expects(self::once())->method('put');
+        $this->sftp->expects(self::once())->method('disconnect');
         $this->subject->upload('some');
     }
 }

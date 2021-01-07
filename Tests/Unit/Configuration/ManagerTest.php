@@ -1,20 +1,14 @@
 <?php
 
-
-namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
-
-/**
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+/*
+ * This file is part of the "bzga_beratungsstellensuche_export" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
+
+namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit\Configuration;
+
 use Bzga\BzgaBeratungsstellensucheExport\Configuration\Manager;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
@@ -26,8 +20,6 @@ class ManagerTest extends UnitTestCase
      */
     protected $subject;
 
-    /**
-     */
     protected function setUp(): void
     {
         $this->subject = new Manager();
@@ -42,7 +34,7 @@ class ManagerTest extends UnitTestCase
         $configuration1 = $this->subject->getConfiguration();
         $configuration2 = $this->subject->getConfiguration();
 
-        $this->assertSame($configuration1, $configuration2);
+        self::assertSame($configuration1, $configuration2);
     }
 
     /**
@@ -51,7 +43,7 @@ class ManagerTest extends UnitTestCase
     public function configurationHasCorrectSettings(): void
     {
         $configuration = $this->subject->getConfiguration();
-        $this->assertSame('host', $configuration->getHost());
+        self::assertSame('host', $configuration->getHost());
     }
 
     /**
@@ -60,11 +52,9 @@ class ManagerTest extends UnitTestCase
     public function getSettings(): void
     {
         $settings = $this->subject->getSettings();
-        $this->assertArrayHasKey('usernames', $settings);
+        self::assertArrayHasKey('usernames', $settings);
     }
 
-    /**
-     */
     private function setGlobalState(): void
     {
         $params = ['usernames' => 'username', 'host' => 'host', 'path_to_private_key_file' => 'private'];

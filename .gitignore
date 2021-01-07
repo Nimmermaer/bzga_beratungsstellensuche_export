@@ -4,3 +4,5 @@ phpunit.xml
 composer.lock
 ToDo.txt
 var
+.phpunit.result.cache
+

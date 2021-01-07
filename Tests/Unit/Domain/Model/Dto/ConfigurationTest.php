@@ -1,20 +1,14 @@
 <?php
 
-
-namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit;
-
-/**
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+/*
+ * This file is part of the "bzga_beratungsstellensuche_export" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
+
+namespace Bzga\BzgaBeratungsstellensucheExport\Tests\Unit;
+
 use Bzga\BzgaBeratungsstellensucheExport\Domain\Model\Dto\Configuration;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
@@ -33,9 +27,9 @@ class ConfigurationTest extends UnitTestCase
             'path_to_public_key_file' => 'pathToPublicKeyFile',
         ];
         $configuration = new Configuration($params);
-        $this->assertSame('host', $configuration->getHost());
-        $this->assertSame('pathToPrivateKeyFile', $configuration->getPathToPrivateKeyFile());
-        $this->assertSame('pathToPublicKeyFile', $configuration->getPathToPublicKeyFile());
-        $this->assertSame('usernames', $configuration->getUsernames());
+        self::assertSame('host', $configuration->getHost());
+        self::assertSame('pathToPrivateKeyFile', $configuration->getPathToPrivateKeyFile());
+        self::assertSame('pathToPublicKeyFile', $configuration->getPathToPublicKeyFile());
+        self::assertSame('usernames', $configuration->getUsernames());
     }
 }
