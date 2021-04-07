@@ -18,7 +18,7 @@ class Entry extends \Bzga\BzgaBeratungsstellensuche\Domain\Model\Entry
     /**
      * @var string
      */
-    const ETB_COUNTRY_ID = 1;
+    const ETB_COUNTRY_ID = '1';
 
     /**
      * @var
