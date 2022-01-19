@@ -26,21 +26,25 @@ class EtbSerializer implements SerializerInterface
      */
     private $serializer;
 
+    /**
+     * @var array;
+     */
+    private $ignoredAttributes = [];
+
     public function __construct()
     {
         $entry = new Entry();
         $properties = ObjectAccess::getGettablePropertyNames($entry);
         $nameConverter = new SorgenTelefonNameConverter();
         $exposedProperties = $nameConverter->getProperties();
-        $ignoredAttributes = array_diff($properties, $exposedProperties);
+        $this->ignoredAttributes = array_diff($properties, $exposedProperties);
         $normalizer = new EtbNormalizer(null, $nameConverter);
-        $normalizer->setIgnoredAttributes($ignoredAttributes);
         $this->serializer = new Serializer(
             [
                 $normalizer,
             ],
             [
-                new CsvEncoder('|'),
+                new CsvEncoder([CsvEncoder::DELIMITER_KEY => '|'])
             ]
         );
     }
@@ -50,7 +54,13 @@ class EtbSerializer implements SerializerInterface
      */
     public function serialize($data, $format, array $context = []): string
     {
-        return $this->serializer->serialize($data, 'csv', [CsvEncoder::HEADERS_KEY => array_values(SorgenTelefonNameConverter::$mapNames)]);
+        return $this->serializer->serialize($data,
+            'csv',
+            [
+                CsvEncoder::HEADERS_KEY => array_values(SorgenTelefonNameConverter::$mapNames),
+                EtbNormalizer::IGNORED_ATTRIBUTES => $this->ignoredAttributes
+            ]
+        );
     }
 
     /**

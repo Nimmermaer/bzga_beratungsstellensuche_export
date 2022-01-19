@@ -9,10 +9,10 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'Hauptweg Nebenwege GmbH',
     'state' => 'beta',
     'clearCacheOnLoad' => 0,
-    'version' => '10.4.0',
+    'version' => '11.5.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-10.4.99',
+            'typo3' => '9.5.0-11.4.99',
             'bzga_beratungsstellensuche' => '10.4.0-',
         ],
         'conflicts' => [],
