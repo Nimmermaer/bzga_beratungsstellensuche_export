@@ -66,7 +66,7 @@ class EtbSerializer implements SerializerInterface
     /**
      * @inheritDoc
      */
-    public function deserialize($data, $type, $format, array $context = [])
+    public function deserialize($data, $type, $format, array $context = []): mixed
     {
         throw new BadMethodCallException('This method is not implemented yet');
     }

@@ -35,21 +35,19 @@
         }
     },
     "require": {
-        "typo3/cms-core": "^9.5 || ^10.4 || ^11.5",
-        "php": ">=7.3",
+        "typo3/cms-core": "^9.5 || ^10.4 || ^12.4",
         "bzga/bzga-beratungsstellensuche": "^9.5 || ^10.0 || 11.0.x-dev",
         "ext-simplexml": "*",
-        "symfony/property-access": "^4.0 || ^5.0",
         "phpseclib/phpseclib": "^2.0"
     },
     "require-dev": {
         "typo3/testing-framework": "^5.0",
-        "typo3/cms-tstemplate": "^9.0 || ^10.4 || ^11.5",
-        "typo3/cms-seo": "^9.0 || ^10.4 || ^11.5",
-        "typo3/cms-fluid-styled-content": "^9.0 || ^10.4 || ^11.5",
-        "typo3/cms-extensionmanager": "^9.0 || ^10.4 || ^11.5",
-        "typo3/cms-belog": "^9.0 || ^10.4 || ^11.5",
-        "typo3/cms-rte-ckeditor": "^9.0 || ^10.4 || ^11.5",
+        "typo3/cms-tstemplate": "^9.0 || ^10.4 || ^12.4",
+        "typo3/cms-seo": "^9.0 || ^10.4 || ^12.4",
+        "typo3/cms-fluid-styled-content": "^9.0 || ^10.4 || ^12.4",
+        "typo3/cms-extensionmanager": "^9.0 || ^10.4 || ^12.4",
+        "typo3/cms-belog": "^9.0 || ^10.4 || ^12.4",
+        "typo3/cms-rte-ckeditor": "^9.0 || ^10.4 || ^12.4",
         "helhum/typo3-console": "^5.0 || ^6.0",
         "php-parallel-lint/php-parallel-lint": "^1.2",
         "typo3/coding-standards": "^0.2.0"
@@ -87,7 +85,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "11.5.x-dev"
+            "dev-master": "12.4.x-dev"
         },
         "typo3/cms": {
             "extension-key": "bzga_beratungsstellensuche_export",

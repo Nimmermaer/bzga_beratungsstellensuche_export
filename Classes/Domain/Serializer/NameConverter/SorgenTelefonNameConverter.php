@@ -67,7 +67,7 @@ class SorgenTelefonNameConverter implements NameConverterInterface
     /**
      * @inheritDoc
      */
-    public function denormalize($propertyName)
+    public function denormalize($propertyName): string
     {
         throw new BadMethodCallException('This function is not implemented yet');
     }
