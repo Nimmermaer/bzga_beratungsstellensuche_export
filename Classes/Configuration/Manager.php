@@ -35,11 +35,11 @@ class Manager implements SingletonInterface
 
     public function getSettings(): array
     {
-        if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'])) {
+        if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['bzga_beratungsstellensuche_export'])) {
             return [];
         }
 
-        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export']);
+        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['bzga_beratungsstellensuche_export']);
 
         if (!is_array($settings)) {
             $settings = [];

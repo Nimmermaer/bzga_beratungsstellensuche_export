@@ -26,17 +26,17 @@ final class ExportToFileCommand extends Command
     /**
      * @var EntryRepository
      */
-    private $entryRepository;
+    private EntryRepository $entryRepository;
 
     /**
      * @var EtbSerializer
      */
-    private $serializer;
+    private EtbSerializer $serializer;
 
     public function __construct(string $name = null, EntryRepository $entryRepository = null, EtbSerializer $serializer = null)
     {
-        $this->entryRepository = $entryRepository ?? self::getObjectManager()->get(EntryRepository::class);
-        $this->serializer = $serializer ?? self::getObjectManager()->get(EtbSerializer::class);
+        $this->entryRepository = $entryRepository;
+        $this->serializer = $serializer;
         parent::__construct($name);
     }
 
@@ -56,10 +56,5 @@ final class ExportToFileCommand extends Command
         }
 
         return 0;
-    }
-
-    private static function getObjectManager(): ObjectManagerInterface
-    {
-        return GeneralUtility::makeInstance(ObjectManager::class);
     }
 }
