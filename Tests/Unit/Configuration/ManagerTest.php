@@ -58,6 +58,6 @@ class ManagerTest extends UnitTestCase
     private function setGlobalState(): void
     {
         $params = ['usernames' => 'username', 'host' => 'host', 'path_to_private_key_file' => 'private'];
-        $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bzga_beratungsstellensuche_export'] = serialize($params);
+        $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['bzga_beratungsstellensuche_export'] = serialize($params);
     }
 }

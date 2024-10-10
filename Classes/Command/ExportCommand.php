@@ -18,8 +18,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 
 final class ExportCommand extends Command
 {
@@ -35,8 +33,8 @@ final class ExportCommand extends Command
 
     public function __construct(string $name = null, EntryRepository $entryRepository = null, EtbSerializer $serializer = null)
     {
-        $this->entryRepository = $entryRepository ?? self::getObjectManager()->get(EntryRepository::class);
-        $this->serializer = $serializer ?? self::getObjectManager()->get(EtbSerializer::class);
+        $this->entryRepository = $entryRepository ?? GeneralUtility::makeInstance(EntryRepository::class);
+        $this->serializer = $serializer ?? GeneralUtility::makeInstance(EtbSerializer::class);
         parent::__construct($name);
     }
 
@@ -58,8 +56,4 @@ final class ExportCommand extends Command
         return 0;
     }
 
-    private static function getObjectManager(): ObjectManagerInterface
-    {
-        return GeneralUtility::makeInstance(ObjectManager::class);
-    }
 }
